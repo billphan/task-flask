@@ -1,31 +1,27 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <!-- The To-Do list is probably the "Hello World!" of web applications. -->
 
-    <h1>TO-DOs</h1>
+    <div class="wrapper">
 
-    <form method='POST'>
+      <h1>TO-DOs</h1>
 
-      <label>
-        New Task:
+      <form method='POST'>
+        <label>New Task:</label>
         <input type="text" name='task' />
+        <input type="submit" value='Add Task' />
+      </form>
 
-      </label>
-
-      <input type="submit" value='Add Task' />
-
-    </form>
-
-    <hr/>
-
-    {% if tasks|length == 0 %}
-    <p>No tasks yet.</p>
-    {% else %}
-    <ul>
-      {% for task in tasks %}
-      <li>{{task}}</li>
-      {% endfor %}
-    </ul>
-    {% endif %}
-
+      <hr/>
+      {% if tasks|length == 0 %}
+      <p>No tasks yet.</p>
+      {% else %}
+      <ul>
+        {% for task in tasks %}
+        <li>{{task}}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
 {% endblock %}
